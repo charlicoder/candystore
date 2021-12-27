@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Project Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700italic,700,900,900italic" rel="stylesheet">
+
+    <!-- STYLESHEETS -->
+    
+    <!-- / STYLESHEETS -->
+
+    {% include 'includes/styles.html' %}
+
+    {% block stylesheets %}{% endblock stylesheets %}
+
+</head>
+
+<body class="{% block body_class %} layout layout-vertical layout-left-navigation layout-below-toolbar {% endblock body_class %}">
+
+    {% block body %}    
+
+    
+
+    {% endblock body %}
+    
+    <!-- JAVASCRIPT -->
+
+    {% include 'includes/scripts.html' %}
+
+    <!-- / JAVASCRIPT -->
+
+    <!-- Specific Page JS goes HERE  -->
+    {% block javascripts %}{% endblock javascripts %}
+
+</body>
+
+</html>

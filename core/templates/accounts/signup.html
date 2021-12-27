@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--favicon-->
+	<link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
+	<!--plugins-->
+	<link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+	<link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+	<link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+	<link href="assets/plugins/smart-wizard/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+	<link href="assets/plugins/Drag-And-Drop/dist/imageuploadify.min.css" rel="stylesheet" />
+	<!-- loader-->
+	<link href="assets/css/pace.min.css" rel="stylesheet" />
+	<script src="assets/js/pace.min.js"></script>
+	<!-- Bootstrap CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/app.css" rel="stylesheet">
+	<link href="assets/css/icons.css" rel="stylesheet">
+	<title>Sign Up</title>
+</head>
+
+<body class="bg-theme bg-theme2">
+	<!--wrapper-->
+	    <div class="wrapper">
+            <header class="login-header shadow">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top rounded-0 shadow-sm">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <h6 class="mb-0 text-uppercase">Candystore</h6>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item"> <a class="nav-link text-white" aria-current="page" href="signin.html"><i class='bx bx-home-alt me-1'></i>Back to Login</a>
+                                </li>
+                                <!--<li class="nav-item"> <a class="nav-link text-white" href="#"><i class='bx bx-user me-1'></i>FAQ</a>
+                                </li>-->
+                                <li class="nav-item"> <a class="nav-link text-white" href="support.html"><i class='bx bx-category-alt me-1'></i>Support</a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+		
+			<div class="container">
+				<div style="padding-top: 80px;">
+		
+				<div class="col ">
+					<div class="col-xl-12 mx-auto">
+						<h6 class="mb-0 text-uppercase">Sign Up</h6>
+						<hr/>
+						<div class="card">
+							<div class="card-body">
+								<br />
+								<!--<p>
+									<label>Theme:</label>
+									<select id="theme_selector">
+										<option value="default">Default</option>
+										<option value="arrows">Arrows</option>
+										<option value="dots" selected>Dots</option>
+										<option value="dark">Dark</option>
+									</select>&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="checkbox" id="is_justified" value="1" checked />
+									<label for="is_justified">Justified</label>&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>Animation:</label>
+									<select id="animation">
+										<option value="none">None</option>
+										<option value="fade">Fade</option>
+										<option value="slide-horizontal" selected>Slide Horizontal</option>
+										<option value="slide-vertical">Slide Vertical</option>
+										<option value="slide-swing">Slide Swing</option>
+									</select>&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>Go To:</label>
+									<select id="got_to_step">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+									</select>&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>External Buttons:</label>
+									<button class="btn btn-secondary" id="prev-btn" type="button">Go Previous</button>
+									<button class="btn btn-secondary" id="next-btn" type="button">Go Next</button>
+									<button class="btn btn-danger" id="reset-btn" type="button">Reset Wizard</button>
+								</p>-->
+								<br />
+								<!-- SmartWizard html -->
+								<div id="smartwizard">
+									<ul class="nav">
+										<li class="nav-item">
+											<a class="nav-link" href="#step-1">	<strong>Step 1</strong> 
+												<br>This is step description</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#step-2">	<strong>Step 2</strong> 
+												<br>This is step description</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#step-3">	<strong>Step 3</strong> 
+												<br>This is step description</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#step-4">	<strong>Step 4</strong> 
+												<br>This is step description</a>
+										</li>
+									</ul>
+									<div class="tab-content">
+										<div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+											
+										<div class="card mt-5">
+							<div class="card-body">
+								<div class="border p-4 rounded">
+									<div class="text-center">
+										<h3 class="">Sign Up</h3>
+										<p>Already have an account? <a href="signin.html">Sign in here</a>
+										</p>
+									</div>
+									<div class="d-grid">
+										
+									</div>
+									<div class="login-separater text-center mb-4"> <span>SIGN UP WITH EMAIL</span>
+										<hr/>
+									</div>
+									<div class="form-body">
+										<form class="row g-3">
+											
+											<div class="col-12">
+												<label for="inputEmailAddress" class="form-label">Email Address</label>
+												<input type="email" class="form-control" id="inputEmailAddress" placeholder="example@user.com">
+											</div>
+											<div class="col-12">
+												<label for="inputChoosePassword" class="form-label">Password</label>
+												<div class="input-group" id="show_hide_password">
+													<input type="password" class="form-control border-end-0" id="inputChoosePassword" value="12345678" placeholder="Enter Password"> <a href="javascript:;" class="input-group-text"><i class='bx bx-hide'></i></a>
+												</div>
+											</div>
+											<div class="col-12">
+												<label for="inputChoosePassword" class="form-label">Confirm Password</label>
+												<div class="input-group" id="show_hide_password">
+													<input type="password" class="form-control border-end-0" id="inputChoosePassword" value="12345678" placeholder="Enter Password"> <a href="javascript:;" class="input-group-text"><i class='bx bx-hide'></i></a>
+												</div>
+											</div>
+											
+											
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+										
+											
+										</div>
+										<div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
+											<h3>Step 2 KYC</h3>
+											<div><div class="row">
+					<div class="col-xl-9 mx-auto">
+						<h6 class="mb-0 text-uppercase">Upload Passport</h6>
+						<hr/>
+						<div class="card">
+							<div class="card-body">
+								<form>
+									<input id="image-uploadify" type="file" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+												<div class="row">
+					<div class="col-xl-9 mx-auto">
+						<h6 class="mb-0 text-uppercase">Upload Driving Licence</h6>
+						<hr/>
+						<div class="card">
+							<div class="card-body">
+								<form>
+									<input id="image-uploadify" type="file" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+												
+												<div class="row">
+					<div class="col-xl-9 mx-auto">
+						<h6 class="mb-0 text-uppercase">Upload your Photo</h6>
+						<hr/>
+						<div class="card">
+							<div class="card-body">
+								<form>
+									<input id="image-uploadify" type="file" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+											
+											</div>
+										</div>
+										<div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
+											<h1>I ____ agree to freedom Trust terms and conditions</h1>
+											Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+										<div class="col-12">
+												<div class="form-check form-switch">
+													<input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+													<label class="form-check-label" for="flexSwitchCheckChecked">I read and agree to Terms & Conditions</label>
+												</div>
+											</div>
+										</div>
+										<div id="step-4" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
+											<h3>Step 4 Content</h3>
+											Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end row-->
+			</div>
+		
+		</div>
+		<!--end page wrapper -->
+		<div class="d-flex align-items-center justify-content-center my-5">
+			<div class="container">
+				<div class="row row-cols-1 row-cols-lg-2 row-cols-xl-2">
+					<div class="col mx-auto">
+						
+						
+						
+						
+					</div>
+				</div></div>
+				<!--end row-->
+			</div>
+		</div>
+		<footer class="bg-light shadow-sm border-top p-2 text-center fixed-bottom">
+			<p class="mb-0">Copyright © 2021. All right reserved.</p>
+		</footer>
+	</div>
+	<!--end wrapper-->
+	<!-- Bootstrap JS -->
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<!--plugins-->
+	<script src="assets/js/jquery.min.js"></script>
+	
+	<script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+	<script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+	<script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+	<script src="assets/plugins/smart-wizard/js/jquery.smartWizard.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			// Toolbar extra buttons
+			var btnFinish = $('<button></button>').text('Finish').addClass('btn btn-info').on('click', function () {
+				alert('Finish Clicked');
+			});
+			var btnCancel = $('<button></button>').text('Cancel').addClass('btn btn-danger').on('click', function () {
+				$('#smartwizard').smartWizard("reset");
+			});
+			// Step show event
+			$("#smartwizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection, stepPosition) {
+				$("#prev-btn").removeClass('disabled');
+				$("#next-btn").removeClass('disabled');
+				if (stepPosition === 'first') {
+					$("#prev-btn").addClass('disabled');
+				} else if (stepPosition === 'last') {
+					$("#next-btn").addClass('disabled');
+				} else {
+					$("#prev-btn").removeClass('disabled');
+					$("#next-btn").removeClass('disabled');
+				}
+			});
+			// Smart Wizard
+			$('#smartwizard').smartWizard({
+				selected: 0,
+				theme: 'dots',
+				transition: {
+					animation: 'slide-horizontal', // Effect on navigation, none/fade/slide-horizontal/slide-vertical/slide-swing
+				},
+				toolbarSettings: {
+					toolbarPosition: 'bottom', // both bottom
+					//toolbarExtraButtons: [btnFinish, ] //btnCancel
+				}
+			});
+			// External Button Events
+			$("#reset-btn").on("click", function () {
+				// Reset wizard
+				$('#smartwizard').smartWizard("reset");
+				return true;
+			});
+			$("#prev-btn").on("click", function () {
+				// Navigate previous
+				$('#smartwizard').smartWizard("prev");
+				return true;
+			});
+			$("#next-btn").on("click", function () {
+				// Navigate next
+				$('#smartwizard').smartWizard("next");
+				return true;
+			});
+			// Demo Button Events
+			$("#got_to_step").on("change", function () {
+				// Go to step
+				var step_index = $(this).val() - 1;
+				$('#smartwizard').smartWizard("goToStep", step_index);
+				return true;
+			});
+			$("#is_justified").on("click", function () {
+				// Change Justify
+				var options = {
+					justified: $(this).prop("checked")
+				};
+				$('#smartwizard').smartWizard("setOptions", options);
+				return true;
+			});
+			$("#animation").on("change", function () {
+				// Change theme
+				var options = {
+					transition: {
+						animation: $(this).val()
+					},
+				};
+				$('#smartwizard').smartWizard("setOptions", options);
+				return true;
+			});
+			$("#theme_selector").on("change", function () {
+				// Change theme
+				var options = {
+					theme: $(this).val()
+				};
+				$('#smartwizard').smartWizard("setOptions", options);
+				return true;
+			});
+		});
+	</script>
+	<script src="assets/js/app.js"></script>
+	<script src="assets/plugins/Drag-And-Drop/dist/imageuploadify.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#image-uploadify').imageuploadify();
+		})
+	</script>
+	<!--Password show & hide js -->
+	<script>
+		$(document).ready(function () {
+			$("#show_hide_password a").on('click', function (event) {
+				event.preventDefault();
+				if ($('#show_hide_password input').attr("type") == "text") {
+					$('#show_hide_password input').attr('type', 'password');
+					$('#show_hide_password i').addClass("bx-hide");
+					$('#show_hide_password i').removeClass("bx-show");
+				} else if ($('#show_hide_password input').attr("type") == "password") {
+					$('#show_hide_password input').attr('type', 'text');
+					$('#show_hide_password i').removeClass("bx-hide");
+					$('#show_hide_password i').addClass("bx-show");
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

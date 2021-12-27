@@ -1,0 +1,31 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block body %}
+    <main>
+        <div id="wrapper">
+            
+            {% include 'includes/aside-left.html' %}
+
+            <div class="content-wrapper">      
+
+                
+                <div class="content custom-scrollbar">
+
+                    <h1>Profile Page</h1>
+                    <hr>
+                    <form action="" method="post">
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <button class='btn' type="submit">Send Mail</button>
+                    </form>
+
+                </div>
+            </div>
+            
+
+        </div>
+    </main>
+{% endblock body %}

@@ -1,0 +1,27 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+
+{% block body %}
+
+<main>
+    <div id="wrapper">
+        
+        <div class="content-wrapper">
+
+        	{% include 'includes/toolbar-top.html' %}
+            
+            <div class="content custom-scrollbar">
+
+                
+            	{% block content %}{% endblock content %}
+                                    
+
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+{% endblock body %}

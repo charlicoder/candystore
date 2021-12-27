@@ -1,0 +1,24 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block body %}
+
+<div id="register" class="p-8">
+
+    <div class="form-wrapper md-elevation-8 p-8">
+
+        <div class="title mt-4 mb-8">Create an account</div>
+        <form method="post" >
+            {% csrf_token %}
+       {{ form.as_p }}
+        <button type="submit">save</button>
+        </form>
+        <div class="login d-flex flex-column flex-sm-row align-items-center justify-content-center mt-8 mb-6 mx-auto">
+            <span class="text mr-sm-2">Already have an account?</span>
+            <a class="link text-secondary" href="{% url 'login' %}">Log in</a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock body %}

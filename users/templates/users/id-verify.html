@@ -1,0 +1,22 @@
+{% extends "layouts/base-toolbar-top.html" %}
+{% load static %}
+
+{% block content %}
+<div id="register" class="p-8">
+
+    <div class="form-wrapper md-elevation-8 p-8">
+        <h1>ID Verify</h1>
+        <div class='card'>
+            <div class='card-body'>
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <button class="btn btn-info" type="submit">Verify</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

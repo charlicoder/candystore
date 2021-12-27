@@ -1,0 +1,8 @@
+{% extends "layouts/base-dashboard.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Dashboard</h1>
+{{ user.email }}
+<img src="{{user.candyuserprofile.avater.url}}" alt="" width='200' height="200">
+{% endblock content %}

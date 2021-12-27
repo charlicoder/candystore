@@ -1,0 +1,42 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block body %}
+<div id="register" class="p-8">
+
+    <div class="form-wrapper md-elevation-8 p-8">
+
+        <div class="title mt-4 mb-8">Create an account</div>
+
+       <form name="registerForm" novalidate class="mt-8" method="post">
+            {% csrf_token %}
+
+            <div class="form-group mb-4">
+                <input name='email' type="email" class="form-control" id="registerFormInputEmail" aria-describedby="emailHelp" />
+                <label for="registerFormInputEmail">Email address</label>
+            </div>
+
+            <div class="form-group mb-4">
+                <input name='password1' type="password" class="form-control" id="registerFormInputPassword" />
+                <label for="registerFormInputPassword">Password</label>
+            </div>
+
+            <div class="form-group mb-4">
+                <input name='password2' type="password" class="form-control" id="registerFormInputPasswordConfirm" />
+                <label for="registerFormInputPasswordConfirm">Password (Confirm)</label>
+            </div>
+
+            <button type="submit" class="submit-button btn btn-block btn-secondary my-4 mx-auto" aria-label="LOG IN">
+                CREATE MY ACCOUNT
+            </button>
+
+        </form>
+
+        <div class="login d-flex flex-column flex-sm-row align-items-center justify-content-center mt-8 mb-6 mx-auto">
+            <span class="text mr-sm-2">Already have an account?</span>
+            <a class="link text-secondary" href="{% url 'users:login' %}">Log in</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
