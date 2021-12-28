@@ -1,0 +1,41 @@
+
+
+    <div class="top-bg bg-secondary"></div>
+
+    <!-- CONTENT -->
+    <div class="page-content-wrapper">
+
+        <!-- HEADER -->
+        <div class="page-header light-fg row no-gutters align-items-center justify-content-between">
+
+            <!-- APP TITLE -->
+            {% include 'mlm/partials/header-app-title.html' %}
+            <!-- / APP TITLE -->
+
+            <!-- SEARCH -->
+            <div class="col search-wrapper pl-2">
+
+                
+            </div>
+            <!-- / SEARCH -->
+
+            <div class="col-auto">
+                <a href="{% url 'mlm:create-link' %}" class="btn btn-light">ADD NEW REFERRAL</a>
+            </div>
+
+
+        </div>
+        <!-- / HEADER -->
+
+        <div class="page-content-card">
+
+            {% block data %}
+            
+                {% include 'mlm/partials/referral-link-table.html' %}
+
+            {% endblock data %}
+            
+            
+        </div>
+    </div>
+    <!-- / CONTENT -->

@@ -1,0 +1,56 @@
+{% extends "mlm/layouts/base.html" %}
+{% load static %}
+
+{% block pagestyle %}{% endblock pagestyle %}
+
+
+{% block dashboard_page %}
+
+<div class="page-layout carded full-width ">
+
+    <div class="top-bg bg-secondary text-auto"></div>
+
+    <!-- CONTENT -->
+    <div class="page-content-wrapper">
+        
+        <!-- HEADER -->
+        {% block dash_page_header %}
+
+            {% include 'mlm/partials/header-app-title.html' %}
+
+        {% endblock dash_page_header %}
+        <!-- / HEADER -->
+
+        <div class="page-content-card">
+            
+            <!-- CONTENT TOOLBAR -->
+            {% block dash_page_toolbar %}
+
+                
+
+            {% endblock dash_page_toolbar %}
+            <!-- / CONTENT TOOLBAR -->
+
+            {% block dash_page_content %}
+                
+                <div class="page-content p-6">
+                    
+                    
+                    
+
+                </div>
+
+            {% endblock dash_page_content %}
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+</div>
+
+{% endblock dashboard_page %}
+
+
+{% block pagescript %}
+    <script type="text/javascript" src="{% static 'assets/js/apps/e-commerce/orders/orders.js' %}"></script>
+{% endblock pagescript %}

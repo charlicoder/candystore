@@ -1,0 +1,55 @@
+
+{% extends "mlm/layouts/base.html" %}
+{% load static %}
+
+{% block pagestyle %}{% endblock pagestyle %}
+
+{% block dashboard_page %}
+
+<div class="page-layout carded full-width single-scroll">
+
+    <div class="top-bg bg-secondary text-auto"></div>
+
+    <!-- CONTENT -->
+    <div class="page-content-wrapper">
+
+        <!-- HEADER -->
+        {% block dash_page_header %}
+
+            <div class="page-header py-6 text-light">
+                <span class="h4">Full Width with page scroll</span>
+            </div>
+
+        {% endblock dash_page_header %}
+        <!-- / HEADER -->
+
+        <div class="page-content-card">
+
+            <!-- CONTENT TOOLBAR -->
+            {% block dash_page_toolbar %}
+
+                <div class="toolbar p-6">Content Toolbar</div>
+
+            {% endblock dash_page_toolbar %}
+            <!-- / CONTENT TOOLBAR -->
+
+            <div class="page-content p-6">
+                <!-- DEMO CONTENT -->
+                {% block dash_page_content %}
+                
+                {% endblock dash_page_content %}
+                <!-- / DEMO CONTENT -->
+            </div>
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+</div>
+
+{% endblock dashboard_page %}
+
+
+{% block pagescript %}
+    
+{% endblock pagescript %}

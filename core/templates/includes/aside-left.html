@@ -7,7 +7,7 @@
 
                 <div class="logo">
                     <span class="logo-icon">C</span>
-                    <span class="logo-text">CANDY</span>
+                    <span class="logo-text">CANDYSTORE</span>
                 </div>
 
                 <button id="toggle-fold-aside-button" type="button" class="btn btn-icon d-none d-lg-block" data-fuse-aside-toggle-fold>
@@ -33,7 +33,7 @@
                     <ul id="collapse-dashboards" class='collapse ' role="tabpanel" aria-labelledby="heading-dashboards" data-children=".nav-item">
 
                         <li class="nav-item">
-                            <a class="nav-link ripple " href="{% url 'dashboard' %}" data-url="user-interface-page-layouts-blank.html">
+                            <a class="nav-link ripple " href="{% url 'dashboard:home' %}" data-url="user-interface-page-layouts-blank.html">
 
                                 <span>Project Dashboard</span>
                             </a>
@@ -177,36 +177,30 @@
                     <ul id="collapse-marketing" class='collapse ' role="tabpanel" aria-labelledby="heading-marketing" data-children=".nav-item">
 
                         <li class="nav-item">
-                            <a class="nav-link ripple " href="apps-e-commerce-products.html" data-url="user-interface-page-layouts-blank.html">
+                            <a class="nav-link ripple " href="{% url 'mlm:link-list' %}" data-url="user-interface-page-layouts-blank.html">
 
                                 <span>Referral Links</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link ripple " href="apps-e-commerce-products.html" data-url="user-interface-page-layouts-blank.html">
 
-                                <span>Referral Lists</span>
+                        <li class="nav-item">
+                            <a class="nav-link ripple " href="{% url 'mlm:link-list' %}" data-url="user-interface-page-layouts-blank.html">
+
+                                <span>Buddy List (Level 1)</span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link ripple " href="{% url 'mlm:referral-buddy-list' %}" data-url="user-interface-page-layouts-blank.html">
+
+                                <span>Buddy Lists (All Level)</span>
                             </a>
                         </li>
 
                     </ul>
                 </li>
 
-
-
-                
-
-                {% if not request.user.is_authenticated %}
-                <li class="subheader">
-                    <span>PAGES</span>
-                </li>
-
-                <a class="nav-link ripple " href="/users/login/">
-
-                    <span>Login</span>
-                </a>
-                {% endif %}
-             
             </ul>
         </div>
     </div>

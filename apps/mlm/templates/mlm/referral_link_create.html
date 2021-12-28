@@ -1,0 +1,27 @@
+{% extends "mlm/referral_link_list.html" %}
+{% load static %}
+
+{% block pagestyle %}{% endblock pagestyle %}
+
+
+{% block dash_page_header %}
+
+    {% include 'mlm/partials/header-app-title.html' %}
+    
+{% endblock dash_page_header %}
+
+
+{% block dash_page_content %}
+                
+    <div class="page-content p-6">
+        
+        {% include 'mlm/includes/referral_link_create_form.html' %}
+
+    </div>
+
+{% endblock dash_page_content %}
+
+
+{% block pagescript %}
+   
+{% endblock pagescript %}

@@ -20,11 +20,11 @@
 
     {% include 'includes/styles.html' %}
 
-    {% block stylesheets %}{% endblock stylesheets %}
+    {% block pagestyle %}{% endblock pagestyle %}
 
 </head>
 
-<body class="{% block body_class %} layout layout-vertical layout-left-navigation layout-below-toolbar {% endblock body_class %}">
+<body class="layout layout-vertical layout-left-navigation {% block body_class %} layout-avobe-toolbar {% endblock body_class %}">
 
     {% block body %}    
 
@@ -39,7 +39,7 @@
     <!-- / JAVASCRIPT -->
 
     <!-- Specific Page JS goes HERE  -->
-    {% block javascripts %}{% endblock javascripts %}
+    {% block pagescript %}{% endblock pagescript %}
 
 </body>
 

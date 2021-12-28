@@ -5,17 +5,20 @@
     <div class="row no-gutters align-items-center flex-nowrap">
 
         <div class="col">
-            <nav class="nav">
-                <a class="nav-link active" href="#">Home</a>
-                <a class="nav-link" href="#">Blog</a>
-                <a class="nav-link" href="{% url 'contact-us' %}">Contact Us</a>
-            </nav>
+            
         </div>
 
         <div class="col-auto">
 
             <div class="row no-gutters align-items-right justify-content-end">
                 
+                <div class="col">
+                    <nav class="nav">
+                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link" href="#">Blog</a>
+                        <a class="nav-link" href="{% url 'apps.home:contact-us' %}">Contact Us</a>
+                    </nav>
+                </div>
                     
                 {% if request.user.is_authenticated %}
 
@@ -31,10 +34,24 @@
 
                         <div class="dropdown-menu" aria-labelledby="dropdownUserMenu">
 
-                            <a class="dropdown-item" href="{% url 'users:profile' pk=request.user.id %}">
+                            <a class="dropdown-item" href="">
                                 <div class="row no-gutters align-items-center flex-nowrap">
                                     <i class="icon-account"></i>
-                                    <span class="px-3">My Profile</span>
+                                    <span class="px-3">Settings</span>
+                                </div>
+                            </a>
+
+                            <a class="dropdown-item" href="{% url 'users:profile-v1' pk=request.user.id %}">
+                                <div class="row no-gutters align-items-center flex-nowrap">
+                                    <i class="icon-account"></i>
+                                    <span class="px-3">My Profile V1</span>
+                                </div>
+                            </a>
+
+                            <a class="dropdown-item" href="{% url 'users:profile-v2' pk=request.user.id %}">
+                                <div class="row no-gutters align-items-center flex-nowrap">
+                                    <i class="icon-account"></i>
+                                    <span class="px-3">My Profile V2</span>
                                 </div>
                             </a>
 
@@ -48,6 +65,7 @@
                             </a>
 
                         </div>
+                        
                     </div>
                 {% else %}
                 <nav class="nav">
