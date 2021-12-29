@@ -1,52 +1,42 @@
-<table id="e-commerce-products-table" class="table dataTable">
-    <thead>
+{% load static %}
+
+<table id="" class="table">
+    <thead class="thead-dark">
         <tr>
             <th>
-                <div class="table-header">
-                    <span class="column-title">ID</span>
-                </div>
+                ID
             </th>
 
             <th>
-                <div class="table-header">
-                    <span class="column-title">Image</span>
-                </div>
+                Image
             </th>
 
             <th>
-                <div class="table-header">
-                    <span class="column-title">Name</span>
-                </div>
+                Contacts
             </th>
 
             <th>
-                <div class="table-header">
-                    <span class="column-title">Category</span>
-                </div>
+              Earnings
             </th>
 
             <th>
-                <div class="table-header">
-                    <span class="column-title">Price</span>
-                </div>
+                Commission
             </th>
 
             <th>
-                <div class="table-header">
-                    <span class="column-title">Quantity</span>
-                </div>
+                Buddy List
             </th>
 
             <th>
-                <div class="table-header">
-                    <span class="column-title">Active</span>
-                </div>
+                Send Message
             </th>
 
             <th>
-                <div class="table-header">
-                    <span class="column-title">Actions</span>
-                </div>
+                Status
+            </th>
+
+            <th>
+                Action
             </th>
         </tr>
     </thead>
@@ -55,14 +45,48 @@
 
         <tr>
             <td>1</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
+            <td class='text-center'>
+                <a href="{% url 'users:profile' pk=request.user.id %}" class="d-flex flex-column">
+                    
+                        <img class="rounded-circle mx-auto" width='60px' src="{% static 'assets/images/avatars/Abbott.jpg' %}">
+                        <span class="font-weight-bold my-2">Devid Haddad</span>
+                    
+                </a>
             </td>
-            <td>Printed Dress</td>
-            <td>Dresses</td>
-            <td>10.24</td>
-            <td>3</td>
-            <td>true</td>
+            
+            <td>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-telegram"></i>
+                   <span class="mx-2">@hello</span>
+                </span>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-skype "></i>
+                    <span class="mx-2">rashid</span>                    
+                </span>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-phone"></i>
+                    <span class="mx-2">+88087094237</span>                    
+                </span>
+            </td>
+            <td>
+                <span class="btn btn-outline-primary btn-fab btn-sm">14</span>
+            </td>
+            <td>
+                <span class="btn btn-outline-primary btn-fab btn-sm">3%</span>
+            </td>
+            <td>
+                <a href="" class="btn btn-outline-primary btn-fab btn-sm">
+                    545
+                </a>
+            </td>
+            <td>
+                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
+                    <i class="icon icon-send"></i>
+                </button>
+            </td>
+            <td>
+                <span class="badge badge-primary">Active</span>
+            </td>
             <td>
                 <button type="button" class="btn btn-icon" aria-label="Product details">
                     <i class="icon icon-pencil s-4"></i>
@@ -72,14 +96,48 @@
 
         <tr>
             <td>2</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
+            <td class='text-center'>
+                <a href="{% url 'users:profile' pk=request.user.id %}" class="d-flex flex-column">
+                    
+                        <img class="rounded-circle mx-auto" width='60px' src="{% static 'assets/images/avatars/3.jpg' %}">
+                        <span class="font-weight-bold my-2">Devid Haddad</span>
+                    
+                </a>
             </td>
-            <td>Green Skirt</td>
-            <td>Skirts</td>
-            <td>24.62</td>
-            <td>92</td>
-            <td>true</td>
+            
+            <td>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-telegram"></i>
+                   <span class="mx-2">@hello</span>
+                </span>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-skype "></i>
+                    <span class="mx-2">rashid</span>                    
+                </span>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-phone"></i>
+                    <span class="mx-2">+88087094237</span>                    
+                </span>
+            </td>
+            <td>
+                <span class="btn btn-outline-primary btn-fab btn-sm">14</span>
+            </td>
+            <td>
+                <span class="btn btn-outline-primary btn-fab btn-sm">3%</span>
+            </td>
+            <td>
+                <a href="" class="btn btn-outline-primary btn-fab btn-sm">
+                    545
+                </a>
+            </td>
+            <td>
+                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
+                    <i class="icon icon-send"></i>
+                </button>
+            </td>
+            <td>
+                <span class="badge badge-primary">Active</span>
+            </td>
             <td>
                 <button type="button" class="btn btn-icon" aria-label="Product details">
                     <i class="icon icon-pencil s-4"></i>
@@ -89,14 +147,48 @@
 
         <tr>
             <td>3</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
+            <td class='text-center'>
+                <a href="{% url 'users:profile' pk=request.user.id %}" class="d-flex flex-column">
+                    
+                        <img class="rounded-circle mx-auto" width='60px' src="{% static 'assets/images/avatars/2.jpg' %}">
+                        <span class="font-weight-bold my-2">Devid Haddad</span>
+                    
+                </a>
             </td>
-            <td>Printed Dress</td>
-            <td>Dresses</td>
-            <td>49.29</td>
-            <td>60</td>
-            <td>true</td>
+            
+            <td>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-telegram"></i>
+                   <span class="mx-2">@hello</span>
+                </span>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-skype "></i>
+                    <span class="mx-2">rashid</span>                    
+                </span>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-phone"></i>
+                    <span class="mx-2">+88087094237</span>                    
+                </span>
+            </td>
+            <td>
+                <span class="btn btn-outline-primary btn-fab btn-sm">14</span>
+            </td>
+            <td>
+                <span class="btn btn-outline-primary btn-fab btn-sm">3%</span>
+            </td>
+            <td>
+                <a href="" class="btn btn-outline-primary btn-fab btn-sm">
+                    545
+                </a>
+            </td>
+            <td>
+                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
+                    <i class="icon icon-send"></i>
+                </button>
+            </td>
+            <td>
+                <span class="badge badge-primary">Active</span>
+            </td>
             <td>
                 <button type="button" class="btn btn-icon" aria-label="Product details">
                     <i class="icon icon-pencil s-4"></i>
@@ -106,14 +198,48 @@
 
         <tr>
             <td>4</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
+            <td class='text-center'>
+                <a href="{% url 'users:profile' pk=request.user.id %}" class="d-flex flex-column">
+                    
+                        <img class="rounded-circle mx-auto" width='60px' src="{% static 'assets/images/avatars/4.jpg' %}">
+                        <span class="font-weight-bold my-2">Devid Haddad</span>
+                    
+                </a>
             </td>
-            <td>White T-Shirt</td>
-            <td>T-Shirts</td>
-            <td>69.11</td>
-            <td>101</td>
-            <td>false</td>
+            
+            <td>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-telegram"></i>
+                   <span class="mx-2">@hello</span>
+                </span>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-skype "></i>
+                    <span class="mx-2">rashid</span>                    
+                </span>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-phone"></i>
+                    <span class="mx-2">+88087094237</span>                    
+                </span>
+            </td>
+            <td>
+                <span class="btn btn-outline-primary btn-fab btn-sm">14</span>
+            </td>
+            <td>
+                <span class="btn btn-outline-primary btn-fab btn-sm">3%</span>
+            </td>
+            <td>
+                <a href="" class="btn btn-outline-primary btn-fab btn-sm">
+                    545
+                </a>
+            </td>
+            <td>
+                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
+                    <i class="icon icon-send"></i>
+                </button>
+            </td>
+            <td>
+                <span class="badge badge-primary">Active</span>
+            </td>
             <td>
                 <button type="button" class="btn btn-icon" aria-label="Product details">
                     <i class="icon icon-pencil s-4"></i>
@@ -123,14 +249,48 @@
 
         <tr>
             <td>5</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
+            <td class='text-center'>
+                <a href="{% url 'users:profile' pk=request.user.id %}" class="d-flex flex-column">
+                    
+                        <img class="rounded-circle mx-auto" width='60px' src="{% static 'assets/images/avatars/5.jpg' %}">
+                        <span class="font-weight-bold my-2">Devid Haddad</span>
+                    
+                </a>
             </td>
-            <td>Red Hoodie</td>
-            <td>Hoodies</td>
-            <td>10.24</td>
-            <td>19</td>
-            <td>true</td>
+            
+            <td>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-telegram"></i>
+                   <span class="mx-2">@hello</span>
+                </span>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-skype "></i>
+                    <span class="mx-2">rashid</span>                    
+                </span>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-phone"></i>
+                    <span class="mx-2">+88087094237</span>                    
+                </span>
+            </td>
+            <td>
+                <span class="btn btn-outline-primary btn-fab btn-sm">14</span>
+            </td>
+            <td>
+                <span class="btn btn-outline-primary btn-fab btn-sm">3%</span>
+            </td>
+            <td>
+                <a href="" class="btn btn-outline-primary btn-fab btn-sm">
+                    545
+                </a>
+            </td>
+            <td>
+                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
+                    <i class="icon icon-send"></i>
+                </button>
+            </td>
+            <td>
+                <span class="badge badge-primary">Active</span>
+            </td>
             <td>
                 <button type="button" class="btn btn-icon" aria-label="Product details">
                     <i class="icon icon-pencil s-4"></i>
@@ -140,14 +300,48 @@
 
         <tr>
             <td>6</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
+            <td class='text-center'>
+                <a href="{% url 'users:profile' pk=request.user.id %}" class="d-flex flex-column">
+                    
+                        <img class="rounded-circle mx-auto" width='60px' src="{% static 'assets/images/avatars/6.jpg' %}">
+                        <span class="font-weight-bold my-2">Devid Haddad</span>
+                    
+                </a>
             </td>
-            <td>Red Hoodie</td>
-            <td>Hoodies</td>
-            <td>59.36</td>
-            <td>101</td>
-            <td>true</td>
+            
+            <td>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-telegram"></i>
+                   <span class="mx-2">@hello</span>
+                </span>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-skype "></i>
+                    <span class="mx-2">rashid</span>                    
+                </span>
+                <span class="d-flex mb-2">
+                    <i class="icon icon-phone"></i>
+                    <span class="mx-2">+88087094237</span>                    
+                </span>
+            </td>
+            <td>
+                <span class="btn btn-outline-primary btn-fab btn-sm">14</span>
+            </td>
+            <td>
+                <span class="btn btn-outline-primary btn-fab btn-sm">3%</span>
+            </td>
+            <td>
+                <a href="" class="btn btn-outline-primary btn-fab btn-sm">
+                    545
+                </a>
+            </td>
+            <td>
+                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
+                    <i class="icon icon-send"></i>
+                </button>
+            </td>
+            <td>
+                <span class="badge badge-primary">Active</span>
+            </td>
             <td>
                 <button type="button" class="btn btn-icon" aria-label="Product details">
                     <i class="icon icon-pencil s-4"></i>
@@ -155,243 +349,6 @@
             </td>
         </tr>
 
-        <tr>
-            <td>7</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Summer Dress</td>
-            <td>Dresses</td>
-            <td>64.21</td>
-            <td>34</td>
-            <td>true</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>8</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Black Shoes</td>
-            <td>Shoes</td>
-            <td>69.73</td>
-            <td>4</td>
-            <td>false</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>9</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Yellow Bag</td>
-            <td>Bags</td>
-            <td>57.37</td>
-            <td>58</td>
-            <td>true</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>10</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Brown Shoes</td>
-            <td>Shoes</td>
-            <td>68.4</td>
-            <td>125</td>
-            <td>true</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>11</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Brown Shoes</td>
-            <td>Shoes</td>
-            <td>53.6</td>
-            <td>27</td>
-            <td>true</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>12</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Night Dress</td>
-            <td>Dresses</td>
-            <td>10.24</td>
-            <td>188</td>
-            <td>true</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>13</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Red Hoodie</td>
-            <td>Hoodies</td>
-            <td>24.62</td>
-            <td>147</td>
-            <td>false</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>14</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Red Hoodie</td>
-            <td>Hoodies</td>
-            <td>49.29</td>
-            <td>21</td>
-            <td>false</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>15</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Summer Dress</td>
-            <td>Dresses</td>
-            <td>69.11</td>
-            <td>10</td>
-            <td>true</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>16</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Red Hoodie</td>
-            <td>Hoodies</td>
-            <td>10.24</td>
-            <td>68</td>
-            <td>true</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>17</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Printed Dress</td>
-            <td>Dresses</td>
-            <td>59.36</td>
-            <td>66</td>
-            <td>false</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>18</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Blouse</td>
-            <td>Dresses</td>
-            <td>64.21</td>
-            <td>60</td>
-            <td>true</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>19</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Leather Belt</td>
-            <td>Belts</td>
-            <td>69.73</td>
-            <td>78</td>
-            <td>true</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>20</td>
-            <td>
-                <img class="product-image" src="../assets/images/ecommerce/product-image-placeholder.png">
-            </td>
-            <td>Leather Belt</td>
-            <td>Belts</td>
-            <td>57.37</td>
-            <td>2</td>
-            <td>true</td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
+        
     </tbody>
 </table>

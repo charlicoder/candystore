@@ -41,20 +41,14 @@
                                 </div>
                             </a>
 
-                            <a class="dropdown-item" href="{% url 'users:profile-v1' pk=request.user.id %}">
+                            <a class="dropdown-item" href="{% url 'users:profile' pk=request.user.id %}">
                                 <div class="row no-gutters align-items-center flex-nowrap">
                                     <i class="icon-account"></i>
-                                    <span class="px-3">My Profile V1</span>
+                                    <span class="px-3">My Profile</span>
                                 </div>
                             </a>
 
-                            <a class="dropdown-item" href="{% url 'users:profile-v2' pk=request.user.id %}">
-                                <div class="row no-gutters align-items-center flex-nowrap">
-                                    <i class="icon-account"></i>
-                                    <span class="px-3">My Profile V2</span>
-                                </div>
-                            </a>
-
+                            
                             <div class="dropdown-divider"></div>
 
                             <a class="dropdown-item" href="{% url 'users:logout' %}">

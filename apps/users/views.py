@@ -255,8 +255,8 @@ class CandyUserLoginView(LoginView):
 
 
 
-class CandyUserProfileV1(LoginRequiredMixin, TemplateView):
-    template_name = 'users/candyuserprofile-v1.html'
+class CandyUserProfileView(LoginRequiredMixin, TemplateView):
+    template_name = 'users/profile.html'
 
 
 class CandyUserProfileV2(LoginRequiredMixin, TemplateView):

@@ -1,0 +1,35 @@
+{% extends "layouts/base-dashboard.html" %}
+{% load static %}
+
+{% block pagestyle %} {% endblock pagestyle %}
+
+
+{% block content %}
+
+<div id="profile" class="page-layout simple tabbed">
+
+    <!-- HEADER -->
+        {% block profile_page_header %}
+
+            {% include 'users/partials/profile-page-header.html' %}
+
+        {% endblock profile_page_header %}
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+
+        {% block profile_page_content %}
+
+            {% include 'users/partials/profile-page-content.html' %}
+
+        {% endblock profile_page_content %}
+
+    <!-- / CONTENT -->
+
+</div>
+
+    
+{% endblock content %}
+
+
+{% block pagescript %} {% endblock pagescript %}

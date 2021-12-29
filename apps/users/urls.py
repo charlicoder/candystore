@@ -3,7 +3,7 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth.views import LogoutView
 from .views import ( SignUpView, CandyUserLoginView, 
             VerifyEmailView, HomeView, IdVerifyView, 
-            SignupAgreementView, CandyUserProfileV1, CandyUserProfileV2
+            SignupAgreementView, CandyUserProfileView
         )
 
 app_name = 'users'
@@ -17,6 +17,5 @@ urlpatterns = [
     path('signup-agreement/', SignupAgreementView.as_view(), name='agreement'),
     path('login/', CandyUserLoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(template_name='users/logout.html'), name='logout'),
-    path('<int:pk>/profile-v1/', CandyUserProfileV1.as_view(), name='profile-v1'),
-    path('<int:pk>/profile-v2/', CandyUserProfileV2.as_view(), name='profile-v2')
+    path('<int:pk>/profile-v1/', CandyUserProfileView.as_view(), name='profile'),
 ]
