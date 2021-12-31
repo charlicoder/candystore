@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.core.mail import send_mail
-
+from django.contrib import messages
 from .forms import ContactForm
 
 # Create your views here.
@@ -19,6 +19,8 @@ def contact_us(request):
     # import pdb; pdb.set_trace();
     form = ContactForm(request.POST or None)
 
+    messages.success(request, 'hello')
+
     if request.method == 'POST':
 
         if form.is_valid():
@@ -29,4 +31,4 @@ def contact_us(request):
             send_mail(subject, message, settings.DEFAULT_FROM_EMAIL,
                       [data['recipient']])
 
-    return render(request, 'contact-us.html', {'form': form})
+    return render(request, 'home/contact-us.html', {'form': form})

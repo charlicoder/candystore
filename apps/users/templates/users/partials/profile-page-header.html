@@ -7,9 +7,9 @@
 
         <div class="user-info flex-column row flex-lg-row no-gutters align-items-center">
 
-            <img class="profile-image avatar huge mr-6" src="{% static 'assets/images/avatars/1.jpg' %}">
+            <img class="profile-image avatar huge mr-6" src="{{ user.candyuserprofile.avatar.url }}">
 
-            <div class="name h2 my-6">Katherine Wilson</div>
+            <div class="name h2 my-6">{{ user.candyuserprofile.get_full_name }}</div>
 
         </div>
 

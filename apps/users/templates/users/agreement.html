@@ -2,20 +2,29 @@
 {% load static %}
 
 {% block content %}
-<div id="register" class="p-8">
+<div id="" class="container mt-6 pt-6">
 
-    <div class="form-wrapper md-elevation-8 p-8">
-        <h1>ID Verify</h1>
+    <div class="row mt-6 pt-6 ">
+        <div class="col-8 offset-2">
+            <div class="form-wrapper md-elevation-8 p-8">
+        <h1>Agreement</h1>
+                <hr>
         <div class='card'>
             <div class='card-body'>
                 <form action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
+                    <div class="card h-200">
+                        <div class="card-body" style="height: 200px">
 
+                        </div>
+                    </div>
                     {{ form.as_p }}
 
                     <button class="btn btn-info" type="submit">Verify</button>
                 </form>
             </div>
+        </div>
+    </div>
         </div>
     </div>
 </div>

@@ -3,28 +3,42 @@ from django.contrib import admin
 # Register your models here.
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import Group
-from .models import CandyUser, UserEmailVeirfyToken, CandyUserProfile
-# from .forms import RegistrationForm, CustomUserChangeForm
+from .models import CandyUser, CandyUserProfile
+from .forms import CandyUserCreationForm, CandyUserChangeForm
 from django.utils.safestring import mark_safe
+from django.utils.html import format_html
 
-class UserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'first_name', 'last_name', 'email', 'is_active', 'status', 'parent_user_email', 'list_child')
+
+class CandyUserAdmin(admin.ModelAdmin):
+    add_form = CandyUserChangeForm
+    form = CandyUserCreationForm
+
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+        # obj.created_by = request.user
+        CandyUserProfile.objects.create(user=obj)
+
+
+
+    list_display = ('id', 'email', 'is_active', 'status', 'list_child')
 
     def first_name(self, obj):
-        return obj.candyuserprofile.first_name
+        return obj.first_name
     
     def last_name(self, obj):
-        return obj.candyuserprofile.last_name
+        return obj.last_name
     
-    def parent_user_email(self, obj):
-        if obj.child.first() is not None:
-            parent = obj.child.first().parent
-        else:
-            parent = None
-        if parent is None:
-            return 'None'
-        else:
-            return parent.email
+    # def parent_user_email(self, obj):
+    #     if obj.child.first() is not None:
+    #         parent = obj.child.first().parent
+    #     else:
+    #         parent = None
+    #     if parent is None:
+    #         return 'None'
+    #     else:
+    #         return parent.email
+    #
+    # parent_user_email.allow_tags = True
             
     
     def list_child(self, obj):
@@ -48,17 +62,23 @@ class UserAdmin(admin.ModelAdmin):
     # ordering = ('email',)
     # filter_horizontal = ()
 
-admin.site.register(CandyUser, UserAdmin)
+admin.site.register(CandyUser, CandyUserAdmin)
 admin.site.unregister(Group)
 
+
 class CandyUserProfileAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'avater', 'user')
+
+    def avatar_preview(self, obj):
+        if obj.avatar:
+            return format_html('<img src="{}" width="80" />'.format(obj.avatar.url))
+        else:
+            return format_html('<img src="/static/assets/images/placeholder.png" width="80" />')
+
+    avatar_preview.short_description = 'Image'
+
+    list_display = ('id', 'user', 'avatar_preview')
+
 
 admin.site.register(CandyUserProfile, CandyUserProfileAdmin)
 
 
-class UserEmailVeirfyTokenAdmin(admin.ModelAdmin):
-    list_display = ('user', 'token', 'created_at', 'status')
-
-
-admin.site.register(UserEmailVeirfyToken, UserEmailVeirfyTokenAdmin)

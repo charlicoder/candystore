@@ -1,6 +1,22 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import CandyUser
 from django import forms
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+
+
+class CandyUserCreationForm(UserCreationForm):
+
+    class Meta:
+        model = CandyUser
+        fields = ('email', 'is_staff', 'is_active', )
+
+
+class CandyUserChangeForm(UserChangeForm):
+
+    class Meta:
+        model = CandyUser
+        fields = ('is_staff', 'is_active')
+
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254, help_text='Enter a valid email address')
@@ -16,7 +32,7 @@ class SignUpForm(UserCreationForm):
 
 class IdVerifyForm(forms.Form):
     nid = forms.ImageField()
-    avater = forms.ImageField()
+    avatar = forms.ImageField()
 
 
 

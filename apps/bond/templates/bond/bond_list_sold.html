@@ -1,0 +1,65 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block submenu %}
+    <h4>Internal Bond Account</h4>
+    {% include 'bond/includes/top-menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+<table class='table'>
+    <thead class="table-dark">
+        <tr>
+            <th> # </th>
+            <th>Bond ID</th>
+            <th>ISIN</th>
+            <th>Currency</th>
+            
+            <th>Amount For Sale</th>
+            <th>Balance on deposit</th>
+            <th>Bank Issue</th>
+            <th>Interest Coupon</th>
+            <th>Discount price</th>
+            
+            <th>Status</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        {% for bond in object_list %}
+        <tr>
+            <td>
+                {{ forloop.counter }}
+            </td>
+            <td>
+                <a href="{% url 'bond:bond_detail' pk=bond.id %}">
+                    {{ bond.bond_id }}
+                </a>
+            </td>
+            <td>{{ bond.isbn }}</td>
+            <td>{{ bond.currency }}</td>
+            
+            <td>{{ bond.amount_for_sale }}</td>
+            <td>{{ bond.balance_on_deposit }}</td>
+            <td>{{ bond.bank_issue }}</td>
+            <td>{{ bond.interest_coupon }}</td>
+            <td>{{ bond.discount_price }}</td>
+            
+            <td>{{ bond.status }}</td>
+            
+            
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="8">
+                No account added yet..!
+            </td>
+        </tr>
+        {% endfor %}
+                          
+    </tbody>
+</table>
+
+
+{% endblock %}

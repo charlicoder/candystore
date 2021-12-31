@@ -1,0 +1,98 @@
+
+<table id="" class="table dataTable">
+
+    <thead class="table-dark">
+
+        <tr>
+            <th>
+                <span class="column-title">Bond ID</span>
+            </th>
+
+            <th>
+                <span class="column-title">ISIN</span>
+            </th>
+
+            <th>
+                <span class="column-title">Currency</span>
+            </th>
+
+            <th>
+                <span class="column-title">Amount For Sale</span>
+            </th>
+
+            <th>
+               <span class="column-title">Balance on deposit</span>
+            </th>
+
+            <th>
+                <span class="column-title">Bank Issue</span>
+            </th>
+
+            <th>
+               <span class="column-title">Interest Coupon</span>
+            </th>
+
+            <th>
+               <span class="column-title">Discount price</span>
+            </th>
+
+            <th>
+               <span class="column-title">Status</span>
+            </th>
+
+            <th>
+                <span class="column-title">Actions</span>
+            </th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for bond in object_list %}
+            <tr>
+
+                <td>
+                    <a href="{% url 'bond:bond_detail' pk=bond.id %}">
+                        {{ bond.bond_id }}
+                    </a>
+                </td>
+                <td>{{ bond.isin }}</td>
+                <td>{{ bond.currency }}</td>
+
+                <td>{{ bond.amount_for_sale }}</td>
+                <td>{{ bond.balance_on_deposit }}</td>
+                <td>{{ bond.bank_issue }}</td>
+                <td>{{ bond.interest_coupon }}</td>
+                <td>{{ bond.discount_price }}</td>
+
+                <td>{{ bond.status }}</td>
+
+                <td>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                               aria-haspopup="true" aria-expanded="false"><i class="icon icon-dots-horizontal s-4"></i></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Edit</a>
+                                <a class="dropdown-item" href="#">Request for sell</a>
+
+                            </div>
+                        </li>
+                    </ul>
+
+
+                </td>
+            </tr>
+        {% empty %}
+
+            <tr>
+                <td colspan="10">
+                    No Bond added yet..!
+                </td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>

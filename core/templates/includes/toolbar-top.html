@@ -5,7 +5,7 @@
     <div class="row no-gutters align-items-center flex-nowrap">
 
         <div class="col">
-            
+            {% include 'includes/toolbar-left-menu.html' %}
         </div>
 
         <div class="col-auto">
@@ -16,7 +16,7 @@
                     <nav class="nav">
                         <a class="nav-link active" href="#">Home</a>
                         <a class="nav-link" href="#">Blog</a>
-                        <a class="nav-link" href="{% url 'apps.home:contact-us' %}">Contact Us</a>
+                        <a class="nav-link" href="{% url 'home:contact' %}">Contact Us</a>
                     </nav>
                 </div>
                     
@@ -26,7 +26,9 @@
 
                         <div class="dropdown-toggle ripple row align-items-center no-gutters px-2 px-sm-4" role="button" id="dropdownUserMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="avatar-wrapper">
-                                <img class="avatar" src="{{ request.user.candyuserprofile.avater.url }}">
+                                {% if request.user.candyuserprofile.avatar %}
+                                <img class="avatar" src="{{ request.user.candyuserprofile.avatar.url }}">
+                                {% endif %}
                                 <i class="status text-green icon-checkbox-marked-circle s-4"></i>
                             </div>
                             <span class="username mx-3 d-none d-md-block">{{ request.user.candyuserprofile.first_name }}</span>

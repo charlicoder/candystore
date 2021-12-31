@@ -68,13 +68,16 @@
 
     <tbody>
 
+    {% for code in object_list %}
+
         <tr>
-            <td>1</td>
-            <td>
-                <a href="{% url 'mlm:link-detail' %}" class="btn btn-outline-info">70d4d7d0
-                   
-                </a>
+
+            <td>{{ code.id }}</td>
+
+            <td >
+                <a href="{% url 'mlm:code_details' pk=code.id %}" class="btn btn-outline-info text-wrap " style='width: 16rem;'>{{ code.token }}</a>
             </td>
+
             <td>
                 <a class="nav-item" href="#">
                     <span>435</span>
@@ -82,11 +85,13 @@
                 </a>
                              
             </td>
+
             <td>
                 <span >$256</span>
             </td>
+
             <td>
-                <span >5%</span>
+                <span >{{ code.commission }}</span>
             </td>
            
             <td>
@@ -94,7 +99,7 @@
             </td>
             
             <td>
-                <span class='badge badge-success'>Active</span>
+                <span class='badge badge-success'>{{ code.status }}</span>
             </td>
 
             <td>
@@ -122,337 +127,18 @@
             </td>
 
         </tr>
+
+    {% empty %}
+
+        <tr>
+            <td colspan="9">
+                No Referral code added yet..!
+            </td>
+        </tr>
+
+    {% endfor %}
         
-        <tr>
-            <td>1</td>
-            <td>
-                <a href="{% url 'mlm:link-detail' %}" class="btn btn-outline-info">70d4d7d0
-                   
-                </a>
-            </td>
-            <td>
-                <a class="nav-item" href="#">
-                    <span>435</span>
-                    <i class="icon s-4 icon-eye-outline"></i>
-                </a>
-                             
-            </td>
-            <td>
-                <span >$256</span>
-            </td>
-            <td>
-                <span >5%</span>
-            </td>
-           
-            <td>
-                <span >24%</span>
-            </td>
-            
-            <td>
-                <span class='badge badge-success'>Active</span>
-            </td>
 
-            <td>
-                               
-                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                        <i class="icon icon-send"></i>
-                </button>
-
-            </td>
-            
-            <td>
-                
-                <div class="dropdown">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">View</a>
-                        <a class="dropdown-item" href="#">Send message</a>
-                        <a class="dropdown-item" href="#">Hold</a>
-                    </div>
-                </div>
-
-            </td>
-
-        </tr>
-
-        <tr>
-            <td>1</td>
-            <td>
-                <a href="{% url 'mlm:link-detail' %}" class="btn btn-outline-info">70d4d7d0
-                   
-                </a>
-            </td>
-            <td>
-                <a class="nav-item" href="#">
-                    <span>435</span>
-                    <i class="icon s-4 icon-eye-outline"></i>
-                </a>
-                             
-            </td>
-            <td>
-                <span >$256</span>
-            </td>
-            <td>
-                <span >5%</span>
-            </td>
-           
-            <td>
-                <span >24%</span>
-            </td>
-            
-            <td>
-                <span class='badge badge-success'>Active</span>
-            </td>
-
-            <td>
-                               
-                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                        <i class="icon icon-send"></i>
-                </button>
-
-            </td>
-            
-            <td>
-                
-                <div class="dropdown">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">View</a>
-                        <a class="dropdown-item" href="#">Send message</a>
-                        <a class="dropdown-item" href="#">Hold</a>
-                    </div>
-                </div>
-
-            </td>
-
-        </tr>
-
-        <tr>
-            <td>1</td>
-            <td>
-                <a href="{% url 'mlm:link-detail' %}" class="btn btn-outline-info">70d4d7d0
-                   
-                </a>
-            </td>
-            <td>
-                <a class="nav-item" href="#">
-                    <span>435</span>
-                    <i class="icon s-4 icon-eye-outline"></i>
-                </a>
-                             
-            </td>
-            <td>
-                <span >$256</span>
-            </td>
-            <td>
-                <span >5%</span>
-            </td>
-           
-            <td>
-                <span >24%</span>
-            </td>
-            
-            <td>
-                <span class='badge badge-success'>Active</span>
-            </td>
-
-            <td>
-                               
-                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                        <i class="icon icon-send"></i>
-                </button>
-
-            </td>
-            
-            <td>
-                
-                <div class="dropdown">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">View</a>
-                        <a class="dropdown-item" href="#">Send message</a>
-                        <a class="dropdown-item" href="#">Hold</a>
-                    </div>
-                </div>
-
-            </td>
-
-        </tr>
-
-        <tr>
-            <td>1</td>
-            <td>
-                <a href="{% url 'mlm:link-detail' %}" class="btn btn-outline-info">70d4d7d0
-                   
-                </a>
-            </td>
-            <td>
-                <a class="nav-item" href="#">
-                    <span>435</span>
-                    <i class="icon s-4 icon-eye-outline"></i>
-                </a>
-                             
-            </td>
-            <td>
-                <span >$256</span>
-            </td>
-            <td>
-                <span >5%</span>
-            </td>
-           
-            <td>
-                <span >24%</span>
-            </td>
-            
-            <td>
-                <span class='badge badge-success'>Active</span>
-            </td>
-
-            <td>
-                               
-                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                        <i class="icon icon-send"></i>
-                </button>
-
-            </td>
-            
-            <td>
-                
-                <div class="dropdown">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">View</a>
-                        <a class="dropdown-item" href="#">Send message</a>
-                        <a class="dropdown-item" href="#">Hold</a>
-                    </div>
-                </div>
-
-            </td>
-
-        </tr>
-
-        <tr>
-            <td>1</td>
-            <td>
-                <a href="{% url 'mlm:link-detail' %}" class="btn btn-outline-info">70d4d7d0
-                   
-                </a>
-            </td>
-            <td>
-                <a class="nav-item" href="#">
-                    <span>435</span>
-                    <i class="icon s-4 icon-eye-outline"></i>
-                </a>
-                             
-            </td>
-            <td>
-                <span >$256</span>
-            </td>
-            <td>
-                <span >5%</span>
-            </td>
-           
-            <td>
-                <span >24%</span>
-            </td>
-            
-            <td>
-                <span class='badge badge-success'>Active</span>
-            </td>
-
-            <td>
-                               
-                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                        <i class="icon icon-send"></i>
-                </button>
-
-            </td>
-            
-            <td>
-                
-                <div class="dropdown">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">View</a>
-                        <a class="dropdown-item" href="#">Send message</a>
-                        <a class="dropdown-item" href="#">Hold</a>
-                    </div>
-                </div>
-
-            </td>
-
-        </tr>
-
-        <tr>
-            <td>1</td>
-            <td>
-                <a href="{% url 'mlm:link-detail' %}" class="btn btn-outline-info">70d4d7d0
-                   
-                </a>
-            </td>
-            <td>
-                <a class="nav-item" href="#">
-                    <span>435</span>
-                    <i class="icon s-4 icon-eye-outline"></i>
-                </a>
-                             
-            </td>
-            <td>
-                <span >$256</span>
-            </td>
-            <td>
-                <span >5%</span>
-            </td>
-           
-            <td>
-                <span >24%</span>
-            </td>
-            
-            <td>
-                <span class='badge badge-success'>Active</span>
-            </td>
-
-            <td>
-                               
-                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                        <i class="icon icon-send"></i>
-                </button>
-
-            </td>
-            
-            <td>
-                
-                <div class="dropdown">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">View</a>
-                        <a class="dropdown-item" href="#">Send message</a>
-                        <a class="dropdown-item" href="#">Hold</a>
-                    </div>
-                </div>
-
-            </td>
-
-        </tr>
-        
         
     </tbody>
     

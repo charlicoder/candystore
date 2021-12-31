@@ -1,0 +1,114 @@
+{% extends "bond/layouts/base-bond.html" %}
+{% load static %}
+
+
+{% block bond-page-content-toolbar %}
+
+{% endblock bond-page-content-toolbar %}
+
+{% block bond-page-content %}
+    <div class="page-content p-6">
+        <!-- DEMO CONTENT -->
+        <div class="container mb-6">
+            <div class="row mb-5 pb-5">
+                <div class="col-8 offset-2">
+
+                    <div class="profile-box info-box general card mb-4">
+
+                        <header class="h6 bg-secondary text-auto p-4">
+                            <div class="title">Bond Details</div>
+                        </header>
+
+                        <div class="content p-4">
+
+                            <div class="row">
+
+                                <div class="col-6">
+                                    <div class="info-line mb-6">
+                                        <div class="title font-weight-bold mb-1">Bond ID</div>
+                                        <div class="info">{{ object.bond_id }}</div>
+                                    </div>
+
+                                    <div class="info-line mb-6">
+                                        <div class="title font-weight-bold mb-1">ISIN</div>
+                                        <div class="info">{{ object.isin }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="info-line mb-6">
+                                        <div class="title font-weight-bold mb-1">Currency</div>
+                                        <div class="info"> {{ object.currency }}</div>
+                                    </div>
+
+                                    <div class="info-line mb-6">
+                                        <div class="title font-weight-bold mb-1">Purchase Amount</div>
+                                        <div class="info">{{ object.purchase_amount }}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-6">
+                                    <div class="info-line mb-6">
+                                        <div class="title font-weight-bold mb-1">Amount For Sale</div>
+                                        <div class="info">{{ object.amount_for_sale }}</div>
+                                    </div>
+
+                                    <div class="info-line mb-6">
+                                        <div class="title font-weight-bold mb-1">Balance On Deposit</div>
+                                        <div class="info">{{ object.balance_on_deposit }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="info-line mb-6">
+                                        <div class="title font-weight-bold mb-1">Bank Issue</div>
+                                        <div class="info">{{ object.bank_issue }}</div>
+                                    </div>
+
+                                    <div class="info-line mb-6">
+                                        <div class="title font-weight-bold mb-1">Interest Coupon</div>
+                                        <div class="info">{{ object.interest_coupon }}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-6">
+                                    <div class="info-line mb-6">
+                                        <div class="title font-weight-bold mb-1">Discount Price</div>
+                                        <div class="info">{{ object.discount_price }}</div>
+                                    </div>
+
+                                    <div class="info-line mb-6">
+                                        <div class="title font-weight-bold mb-1">End Date</div>
+                                        <div class="info">{{ object.end_date }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="info-line mb-6">
+                                        <div class="title font-weight-bold mb-1">Status</div>
+                                        <div class="info">{{ object.status }}</div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- / DEMO CONTENT -->
+    </div>
+{% endblock bond-page-content %}

@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="m-3 p-3">
+    <a class="nav-item" href="{% url 'bond:bond_list' %}">
+        <span class="px-3">Bons List</span>
+    </a>
+
+    <a class="nav-item " href="{% url 'bond:bond_list_pendings_approval' %}">
+        <span class="px-3">Bonds (Pendings Desk Approval)</span>
+        
+    </a>
+
+    <a class="nav-item " href="{% url 'bond:bond_list_for_sale' %}">
+        <span class="px-3">Internal Exchange (Bonds for sale)</span>
+        
+    </a>
+
+    <a class="nav-item " href="{% url 'bond:bond_list_sold' %}">
+        <span class="px-3">My Bonds Sold</span>
+        
+    </a>
+
+    <a class="nav-item " href="{% url 'bond:bond_create' %}">
+        <span class="px-3">New Bonds</span>
+        
+    </a>
+         
+</div>

@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     
     'apps.users.apps.UsersConfig',
     'apps.mlm.apps.MlmConfig',
-    # 'apps.book.apps.BookConfig',
+    'apps.bond.apps.BondConfig',
     'apps.home.apps.HomeConfig',
     'apps.dashboard.apps.DashboardConfig',
 
@@ -130,17 +130,17 @@ MEDIA_ROOT = BASE_DIR / 'public/media/'
 MEDIA_URL = '/media/'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
-# DEFAULT_FROM_EMAIL = 'rupnagorit@gmail.com'
-# EMAIL_HOST_USER = 'rupnagorit@gmail.com'
-# EMAIL_HOST_PASSWORD = 'Rupnagorit123'
+DEFAULT_FROM_EMAIL = 'rupnagorit@gmail.com'
+EMAIL_HOST_USER = 'rupnagorit@gmail.com'
+EMAIL_HOST_PASSWORD = 'Rupnagorit123'
 
 
 

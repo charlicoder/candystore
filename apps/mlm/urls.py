@@ -13,8 +13,8 @@ app_name = 'mlm'
 
 urlpatterns = [
     path('test/', TemplateView.as_view(template_name='mlm/test.html'), name='test'),
-    path('referral-links/', ReferralCodeListView.as_view(), name='link-list'),
-    # path('referral/<int:pk>/detail/', ReferralCodeDetailView.as_view(), name='code-list'),
+    path('referral-code/', ReferralCodeListView.as_view(), name='code_list'),
+    path('referral-code/<int:pk>/detail/', ReferralCodeDetailView.as_view(), name='code_details'),
     path('referral/detail/', ReferralCodeDetailView.as_view(), name='link-detail'),
     path('referral/create/', ReferralCodeCreateView.as_view(), name='create-link'),
 

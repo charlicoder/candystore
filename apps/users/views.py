@@ -5,10 +5,10 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.detail import DetailView
 from django.views.generic.base import TemplateView
 from .forms import SignUpForm, IdVerifyForm
-from .models import CandyUser, CandyUserProfile, UserEmailVeirfyToken
+from .models import CandyUser, CandyUserProfile
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import AuthenticationForm
-from apps.mlm.models import ReferalCode, CandyUserReferral
+from apps.mlm.models import ReferralCode, ReferralUserProfile
 from django.contrib import  messages
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -21,13 +21,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 import idanalyzer
 
 from .tokens import account_activation_token
-from django.contrib.auth import authenticate, login
-
+from django.contrib.auth import authenticate, login as auth_login
 
 
 def say_hello(request):
-    import pdb; pdb.set_trace()
-    
     user = request.user
     subject = 'Activate your account.'
     current_site = get_current_site(request)
@@ -61,47 +58,59 @@ class HomeView(View):
         return render(request, 'users/index.html', {'token': token, 'uid': uid})
 
 
-
 class SignUpView(CreateView):
     template_name = 'users/signup.html'
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('users:login')
     form_class = SignUpForm
 
     # def get(self, request):
     #     return render(request, 'users/signup.html')
 
     def form_valid(self, form):
-        # import pdb; pdb.set_trace();
         rcode = self.kwargs.get('code')
+        import pdb;
+        pdb.set_trace();
 
         if not rcode:
-            raise ValueError('Sorry! you can not signup without rafarral...!')
+            raise ValueError('Sorry! you can not signup without referral...!')
+
+        try:
+            rc = ReferralCode.objects.get(token=rcode)
+
+        except ReferralCode.DoesNotExist:
+            messages.error(self.request, 'Your referral code is not valid')
+            return redirect(reverse_lazy('users:signup'))
+
         
         try:
-            rc = ReferalCode.objects.get(token=rcode)
+            candy_user = form.save(commit=False)
+            candy_user.status = 'new'
+            candy_user.is_active = False
+            candy_user.save()
 
-            form = form.save(commit=False)
-            form.status = 'new'
-            form.is_active = False
-            form.save()
-            
-            candy_user_referral = CandyUserReferral.objects.create(
-                parent=rc.created_by,
+            # Create CandyUserProfile object
+            CandyUserProfile.objects.create(user=candy_user)
+
+            # Create referral_user_profile object
+            ReferralUserProfile.objects.create(
+                referrer=rc.created_by,
                 referral_code=rc,
-                child=form,
+                user=candy_user,
                 status='new'
             )
 
+            rc.users_count += 1
+            rc.save()
+
             # send email with email verification link
-            user = form
             current_site = get_current_site(self.request)
-            to_email = form.email
+            to_email = candy_user.email
             mail_subject = 'Activate your account.'
-            uid = urlsafe_base64_encode(force_bytes(user.pk))
-            token = account_activation_token.make_token(user)
+            uid = urlsafe_base64_encode(force_bytes(candy_user.pk))
+            token = account_activation_token.make_token(candy_user)
 
             message = render_to_string('users/email_activation_template.html', {
-                'user': user,
+                'user': candy_user,
                 'domain': current_site.domain,
                 'uid': uid,
                 'token': token,
@@ -112,27 +121,21 @@ class SignUpView(CreateView):
 
             # UserEmailVeirfyToken.objects.create(user=form, token=token, status='new')
 
-            # messages.SUCCESS(request, 'Email verification link is sent. Please check your email.')
-            
+            messages.success(self.request, 'Email verification link is sent. Please check your email & click verification '
+                                      'link to complete the signup process.')
+
         except Exception as e:
-            # raise ValueError('Sorry! you can not signup without rafarral...!')
-            messages.ERROR(request, 'Signup process error!')
-            return render(self.request, 'error.html', {'error_note': 'Invalide referral code!'})
-        
-        return redirect(reverse_lazy('about-us'))
+            messages.error(self.request, 'Signup process error!')
+
+        return redirect(reverse_lazy('home:contact'))
 
 
 class VerifyEmailView(View):
     
     def get(self, request, uidb64, token):
-        # return redirect(reverse_lazy('users:id-verify'))
-        # import pdb; pdb.set_trace()
-        # User = get_user_model()
         try:
             uid = force_text(urlsafe_base64_decode(uidb64))
             user = CandyUser.objects.get(pk=uid)
-            # uid2 = UserEmailVeirfyToken.objects.get(token=token).user.uid
-            # user2 = CandyUser.objects.get(pk=uid)
         except(TypeError, ValueError, OverflowError, CandyUser.DoesNotExist):
             user = None
 
@@ -140,11 +143,11 @@ class VerifyEmailView(View):
             user.is_active = True
             user.status = 'email_verified'
             user.save()
-            login(request, user)
+            auth_login(request, user)
             return redirect(reverse_lazy('users:id-verify'))
-            # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
         else:
-            return HttpResponse('Activation link is invalid!')
+            messages.error(request, 'Email verification process error!')
+            return redirect(reverse_lazy('home:contact'))
 
 
 class IdVerifyView(View):
@@ -153,10 +156,8 @@ class IdVerifyView(View):
         form = IdVerifyForm()
         context = {'form': form}
         return render(request, 'users/id-verify.html', context)
-    
 
     def post(self, request):
-        
         files = request.FILES
         
         coreapi = idanalyzer.CoreAPI("F0r5vzpkU4H908WuSsVMaZRmOrtGfUJu", "US")
@@ -165,55 +166,51 @@ class IdVerifyView(View):
         # enable document authentication using quick module
         coreapi.enable_authentication(True, 'quick')
         coreapi.enable_authentication(True, 2)
-        document_primary = files['nid'].temporary_file_path()
-        biometric_photo = files['avater'].temporary_file_path()
+        document_nid = files['nid'].temporary_file_path()
+        photo = files['avatar'].temporary_file_path()
 
         try:
-            response = coreapi.scan(document_primary=document_primary, biometric_photo=biometric_photo)
+            response = coreapi.scan(document_primary=document_nid, biometric_photo=photo)
             data = response['result']
+            profile = request.user.candyuserprofile
+
             if response.get('authentication'):
                 authentication_result = response['authentication']
                 if authentication_result['score'] > 0.5:
-                    print("The document uploaded is authentic")
                     first_name = data['firstName']
                     last_name = data['lastName']
                 else:
                     request.user.status = 'id_not_verified'
                     request.user.save()
-                    return redirect(reverse_lazy('about-us'))
+                    return redirect(reverse_lazy('home:contact'))
             
             # Parse biometric verification results
             if response.get('face'):
                 face_result = response['face']
-                if face_result['isIdentical']:
-                    print("Face verification PASSED!")
-                    
-                else:
-                    print("Face verification FAILED!")
+                if not face_result['isIdentical']:
                     request.user.status = 'id_not_verified'
                     request.user.save()
-                    return redirect(reverse_lazy('about-us'))
+                    return redirect(reverse_lazy('home:contact'))
 
-                print("Confidence Score: " + face_result['confidence'])
-            
-            import pdb; pdb.set_trace()
 
-            profile = CandyUserProfile(
-                user = request.user,
-                first_name = first_name, 
-                last_name = last_name, 
-                avater = request.FILES['avater']
-            )
-            # profile.user = request.user 
+            # import pdb; pdb.set_trace()
+
+            profile.avatar = files['avatar']
+            profile.first_name = first_name
+            profile.last_name = last_name
+            profile.save()
             # profile.avater = face_result
             # profile.first_name = first_name
             # profile.last_name = last_name
-            profile.save()
+
             request.user.status = 'id_verified'
             request.user.save()
-            return redirect(reverse_lazy('users:agreement'))
+            messages.success(request, 'your document is verified successfully')
+
         except Exception as e:
-            print(e)
+            return redirect(reverse_lazy('home:contact'))
+
+        return redirect(reverse_lazy('users:agreement'))
         
 
 class SignupAgreementView(View):
@@ -226,7 +223,7 @@ class SignupAgreementView(View):
         # import pdb; pdb.set_trace()
         request.user.status = 'active'
         request.user.save()
-        return redirect(reverse_lazy('apps.home:home'))
+        return redirect(reverse_lazy('dashboard:home'))
 
 
 class CandyUserLoginView(LoginView):
@@ -236,21 +233,24 @@ class CandyUserLoginView(LoginView):
 
     def form_valid(self, form):
         """Security check complete. Log the user in."""
-        # import pdb; pdb.set_trace()
         user = form.get_user()
-        login(self.request, user)
+        auth_login(self.request, user)
 
         '''
         Todo: check signup status if all steps are complete. If not redirect to the last step not completed.
         If completed the redirect to dashboard.
         '''
 
-        return redirect(reverse_lazy('dashboard:home'))
+        # return redirect(reverse_lazy('dashboard:home'))
 
         if user.status == 'active':
-            return redirect(reverse_lazy('apps.dashboard:home'))
+            return redirect(reverse_lazy('dashboard:home'))
+        elif user.status == 'email_verified':
+            return redirect(reverse_lazy('users:id-verify'))
+        elif user.status == 'doc_verified':
+            return redirect(reverse_lazy('users:agreement'))
         else:
-            return redirect(reverse_lazy('apps.home:home'))
+            return redirect(reverse_lazy('home:home'))
 
 
 

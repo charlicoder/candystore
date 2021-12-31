@@ -1,0 +1,40 @@
+
+<div class="page-header light-fg row no-gutters align-items-center justify-content-between">
+
+    <!-- APP TITLE -->
+    <div class="col-12 col-sm">
+
+        <div class="logo row no-gutters justify-content-center align-items-start justify-content-sm-start">
+
+            <div class="logo-text">
+                <div class="h4">
+                    <a class="nav-link text-white" href="{% url 'bond:bond_list' %}">BondDesk</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- / APP TITLE -->
+
+    <!-- SEARCH -->
+    <div class="col search-wrapper px-2">
+
+
+
+    </div>
+    <!-- / SEARCH -->
+
+    <div class="col-auto">
+
+        <nav class="nav nav-pill nav-fill">
+            <a class="nav-item nav-link" href="{% url 'bond:bond_create' %}">Add Bond</a>
+            <a class="nav-item nav-link" href="{% url 'bond:bond_list_for_sale' %}">Bonds For Sale</a>
+            <a class="nav-item nav-link" href="{% url 'bond:bond_list_sold' %}">Bonds Soled</a>
+
+        </nav>
+
+
+    </div>
+
+</div>

@@ -13,6 +13,7 @@ urlpatterns = [
     path('dashboard/', include('apps.dashboard.urls'), name='dashboard'),
     path('users/', include('apps.users.urls')),
     path('mlm/', include('apps.mlm.urls')),
+    path('bonds/', include('apps.bond.urls')),
     
     # path('marketing', marketing_site.site.urls),
     

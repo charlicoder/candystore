@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ReferalCode, CandyUserReferral
+from .models import ReferralCode, ReferralUserProfile
 
 # Register your models here.
 # class MarketingAdminArea(admin.AdminSite):
@@ -12,15 +12,21 @@ from .models import ReferalCode, CandyUserReferral
 # marketing_site.register(ReferalCode)
 
 
-class ReferalCodeAdmin(admin.ModelAdmin):
-    list_display = ('token', 'created_by', 'status',)
+class ReferralCodeAdmin(admin.ModelAdmin):
+    list_display = ('token', 'created_by', 'status', 'commission', 'users_count')
 
-admin.site.register(ReferalCode, ReferalCodeAdmin)
+    def save_model(self, request, obj, form, change):
+        obj.created_by = request.user
+        super().save_model(request, obj, form, change)
 
 
-class CandyUserReferralAdmin(admin.ModelAdmin):
-    list_display = ('parent', 'referral_code', 'child', 'status',)
+admin.site.register(ReferralCode, ReferralCodeAdmin)
 
-admin.site.register(CandyUserReferral, CandyUserReferralAdmin)
+
+class ReferralUserProfileAdmin(admin.ModelAdmin):
+    list_display = ('referrer', 'referral_code', 'user', 'commission', 'status',)
+
+
+admin.site.register(ReferralUserProfile, ReferralUserProfileAdmin)
 
 

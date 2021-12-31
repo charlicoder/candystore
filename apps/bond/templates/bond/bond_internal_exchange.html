@@ -1,0 +1,55 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block submenu %}
+    <h4>Internal Bond Account</h4>
+    {% include 'bond/includes/top-menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+<table class='table'>
+    <thead class="table-dark">
+        <tr>
+            <th> # </th>
+            <th>Bond ID</th>
+            <th>ISIN</th>
+            <th>Currency</th>
+            <th>Amount For Sale</th>
+            <th>Bank Issue</th>
+            <th>Interest Coupon</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bond in object_list %}
+        <tr>
+            <td>
+                {{ forloop.counter }}
+            </td>
+            <td>{{ bond.bond_id }}</td>
+            <td>{{ bond.isbn }}</td>
+            <td>{{ bond.currency }}</td>
+            <td>{{ bond.amount_for_sale }}</td>
+            <td>{{ bond.bank_issue }}</td>
+            <td>{{ bond.interest_coupon }}</td>
+            <td>{{ bond.status }}</td>
+            
+            <td>
+                <a class="btn btn-primary" href="">Buy this asset</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="8">
+                No account added yet..!
+            </td>
+        </tr>
+        {% endfor %}
+                          
+    </tbody>
+</table>
+
+
+{% endblock %}
