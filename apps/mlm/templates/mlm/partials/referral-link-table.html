@@ -1,6 +1,6 @@
-<table id="e-commerce-orders-table" class="table dataTable">
+<table id="" class="table dataTable">
 
-    <thead>
+    <thead class="thead-dark">
 
         <tr>
 
@@ -79,15 +79,15 @@
             </td>
 
             <td>
-                <a class="nav-item" href="#">
-                    <span>435</span>
+                <a class="nav-item" href="{% url 'mlm:code-buddy-list' pk=code.id %}">
+                    <span>{{ code.users_count }}</span>
                     <i class="icon s-4 icon-eye-outline"></i>
                 </a>
                              
             </td>
 
             <td>
-                <span >$256</span>
+                <span >Not Set</span>
             </td>
 
             <td>
@@ -95,7 +95,7 @@
             </td>
            
             <td>
-                <span >24%</span>
+                <span >Not Set</span>
             </td>
             
             <td>

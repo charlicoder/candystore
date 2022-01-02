@@ -1,27 +1,35 @@
-{% extends "mlm/referral_link_list.html" %}
+{% extends "mlm/layouts/base.html" %}
+
 {% load static %}
 
-{% block pagestyle %}{% endblock pagestyle %}
-
-
-{% block dash_page_header %}
-
-    {% include 'mlm/partials/header-app-title.html' %}
-    
-{% endblock dash_page_header %}
-
-
-{% block dash_page_content %}
-                
-    <div class="page-content p-6">
-        
-        {% include 'mlm/includes/referral_link_create_form.html' %}
+{% block mlm_page_header_app_title_text %}
+    <div class="logo-text">
+        <div class="h4">Add Referral Code</div>
 
     </div>
+{% endblock mlm_page_header_app_title_text %}
 
-{% endblock dash_page_content %}
+{% block mlm_page_content %}
 
+<div class="container-fluid m-6 p-6">
+    <div class="row mb-6 pb-6">
+        <div class="col-8 offset-2">
+            <div class="card  mb-3 p-6">
 
-{% block pagescript %}
-   
-{% endblock pagescript %}
+                <div class="card-body ">
+                    <form method='post'>
+                        {% csrf_token %}
+
+                            {% include 'mlm/partials/referral_link_create_form.html' %}
+
+                        <button type="submit" class="btn btn-info">Submit</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock mlm_page_content %}

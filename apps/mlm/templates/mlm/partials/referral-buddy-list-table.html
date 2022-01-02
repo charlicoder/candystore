@@ -23,9 +23,6 @@
                 Commission
             </th>
 
-            <th>
-                Buddy List
-            </th>
 
             <th>
                 Send Message
@@ -43,14 +40,15 @@
 
     <tbody>
 
+         {% for buddy in object_list %}
         <tr>
-            <td>1</td>
+            <td>{{ buddy.user.id }}</td>
+
             <td class='text-center'>
-                <a href="{% url 'users:profile' pk=request.user.id %}" class="d-flex flex-column">
+                <a href="{% url 'users:profile' pk=buddy.user.id %}" class="d-flex flex-column">
                     
-                        <img class="rounded-circle mx-auto" width='60px' src="{% static 'assets/images/avatars/Abbott.jpg' %}">
-                        <span class="font-weight-bold my-2">Devid Haddad</span>
-                    
+                    <img class="rounded-circle mx-auto" width='60px' src="{{ buddy.user.candyuserprofile.avatar.url }}">
+                    <span class="font-weight-bold my-2">{{ buddy.user.candyuserprofile.get_full_name }}</span>
                 </a>
             </td>
             
@@ -68,286 +66,50 @@
                     <span class="mx-2">+88087094237</span>                    
                 </span>
             </td>
+
             <td>
-                <span class="btn btn-outline-primary btn-fab btn-sm">14</span>
+                <span class="btn btn-outline-primary btn-fab btn-md">N/A</span>
             </td>
+
             <td>
-                <span class="btn btn-outline-primary btn-fab btn-sm">3%</span>
+                <span class="btn btn-outline-primary btn-fab btn-md">
+                    {% if buddy.commission %}
+                        {{ buddy.commission }}%
+                    {% else %}
+                        {{ buddy.referral_code.commission }}%
+                    {% endif %}
+                </span>
             </td>
-            <td>
-                <a href="" class="btn btn-outline-primary btn-fab btn-sm">
-                    545
-                </a>
-            </td>
+
+
             <td>
                 <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
                     <i class="icon icon-send"></i>
                 </button>
             </td>
+
             <td>
                 <span class="badge badge-primary">Active</span>
             </td>
+
             <td>
                 <button type="button" class="btn btn-icon" aria-label="Product details">
                     <i class="icon icon-pencil s-4"></i>
                 </button>
+            </td>
+
+        </tr>
+
+         {% empty %}
+
+        <tr>
+            <td colspan="8">
+                No Referral code added yet..!
             </td>
         </tr>
 
-        <tr>
-            <td>2</td>
-            <td class='text-center'>
-                <a href="{% url 'users:profile' pk=request.user.id %}" class="d-flex flex-column">
-                    
-                        <img class="rounded-circle mx-auto" width='60px' src="{% static 'assets/images/avatars/3.jpg' %}">
-                        <span class="font-weight-bold my-2">Devid Haddad</span>
-                    
-                </a>
-            </td>
-            
-            <td>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-telegram"></i>
-                   <span class="mx-2">@hello</span>
-                </span>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-skype "></i>
-                    <span class="mx-2">rashid</span>                    
-                </span>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-phone"></i>
-                    <span class="mx-2">+88087094237</span>                    
-                </span>
-            </td>
-            <td>
-                <span class="btn btn-outline-primary btn-fab btn-sm">14</span>
-            </td>
-            <td>
-                <span class="btn btn-outline-primary btn-fab btn-sm">3%</span>
-            </td>
-            <td>
-                <a href="" class="btn btn-outline-primary btn-fab btn-sm">
-                    545
-                </a>
-            </td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                    <i class="icon icon-send"></i>
-                </button>
-            </td>
-            <td>
-                <span class="badge badge-primary">Active</span>
-            </td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
+        {% endfor %}
 
-        <tr>
-            <td>3</td>
-            <td class='text-center'>
-                <a href="{% url 'users:profile' pk=request.user.id %}" class="d-flex flex-column">
-                    
-                        <img class="rounded-circle mx-auto" width='60px' src="{% static 'assets/images/avatars/2.jpg' %}">
-                        <span class="font-weight-bold my-2">Devid Haddad</span>
-                    
-                </a>
-            </td>
-            
-            <td>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-telegram"></i>
-                   <span class="mx-2">@hello</span>
-                </span>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-skype "></i>
-                    <span class="mx-2">rashid</span>                    
-                </span>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-phone"></i>
-                    <span class="mx-2">+88087094237</span>                    
-                </span>
-            </td>
-            <td>
-                <span class="btn btn-outline-primary btn-fab btn-sm">14</span>
-            </td>
-            <td>
-                <span class="btn btn-outline-primary btn-fab btn-sm">3%</span>
-            </td>
-            <td>
-                <a href="" class="btn btn-outline-primary btn-fab btn-sm">
-                    545
-                </a>
-            </td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                    <i class="icon icon-send"></i>
-                </button>
-            </td>
-            <td>
-                <span class="badge badge-primary">Active</span>
-            </td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>4</td>
-            <td class='text-center'>
-                <a href="{% url 'users:profile' pk=request.user.id %}" class="d-flex flex-column">
-                    
-                        <img class="rounded-circle mx-auto" width='60px' src="{% static 'assets/images/avatars/4.jpg' %}">
-                        <span class="font-weight-bold my-2">Devid Haddad</span>
-                    
-                </a>
-            </td>
-            
-            <td>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-telegram"></i>
-                   <span class="mx-2">@hello</span>
-                </span>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-skype "></i>
-                    <span class="mx-2">rashid</span>                    
-                </span>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-phone"></i>
-                    <span class="mx-2">+88087094237</span>                    
-                </span>
-            </td>
-            <td>
-                <span class="btn btn-outline-primary btn-fab btn-sm">14</span>
-            </td>
-            <td>
-                <span class="btn btn-outline-primary btn-fab btn-sm">3%</span>
-            </td>
-            <td>
-                <a href="" class="btn btn-outline-primary btn-fab btn-sm">
-                    545
-                </a>
-            </td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                    <i class="icon icon-send"></i>
-                </button>
-            </td>
-            <td>
-                <span class="badge badge-primary">Active</span>
-            </td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>5</td>
-            <td class='text-center'>
-                <a href="{% url 'users:profile' pk=request.user.id %}" class="d-flex flex-column">
-                    
-                        <img class="rounded-circle mx-auto" width='60px' src="{% static 'assets/images/avatars/5.jpg' %}">
-                        <span class="font-weight-bold my-2">Devid Haddad</span>
-                    
-                </a>
-            </td>
-            
-            <td>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-telegram"></i>
-                   <span class="mx-2">@hello</span>
-                </span>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-skype "></i>
-                    <span class="mx-2">rashid</span>                    
-                </span>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-phone"></i>
-                    <span class="mx-2">+88087094237</span>                    
-                </span>
-            </td>
-            <td>
-                <span class="btn btn-outline-primary btn-fab btn-sm">14</span>
-            </td>
-            <td>
-                <span class="btn btn-outline-primary btn-fab btn-sm">3%</span>
-            </td>
-            <td>
-                <a href="" class="btn btn-outline-primary btn-fab btn-sm">
-                    545
-                </a>
-            </td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                    <i class="icon icon-send"></i>
-                </button>
-            </td>
-            <td>
-                <span class="badge badge-primary">Active</span>
-            </td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>6</td>
-            <td class='text-center'>
-                <a href="{% url 'users:profile' pk=request.user.id %}" class="d-flex flex-column">
-                    
-                        <img class="rounded-circle mx-auto" width='60px' src="{% static 'assets/images/avatars/6.jpg' %}">
-                        <span class="font-weight-bold my-2">Devid Haddad</span>
-                    
-                </a>
-            </td>
-            
-            <td>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-telegram"></i>
-                   <span class="mx-2">@hello</span>
-                </span>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-skype "></i>
-                    <span class="mx-2">rashid</span>                    
-                </span>
-                <span class="d-flex mb-2">
-                    <i class="icon icon-phone"></i>
-                    <span class="mx-2">+88087094237</span>                    
-                </span>
-            </td>
-            <td>
-                <span class="btn btn-outline-primary btn-fab btn-sm">14</span>
-            </td>
-            <td>
-                <span class="btn btn-outline-primary btn-fab btn-sm">3%</span>
-            </td>
-            <td>
-                <a href="" class="btn btn-outline-primary btn-fab btn-sm">
-                    545
-                </a>
-            </td>
-            <td>
-                <button type="button" class="btn btn-sm btn-info btn-fab" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                    <i class="icon icon-send"></i>
-                </button>
-            </td>
-            <td>
-                <span class="badge badge-primary">Active</span>
-            </td>
-            <td>
-                <button type="button" class="btn btn-icon" aria-label="Product details">
-                    <i class="icon icon-pencil s-4"></i>
-                </button>
-            </td>
-        </tr>
 
         
     </tbody>

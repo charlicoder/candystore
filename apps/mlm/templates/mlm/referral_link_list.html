@@ -4,53 +4,21 @@
 
 {% block pagestyle %}{% endblock pagestyle %}
 
-{% block dashboard_page %}
-
-<div class="page-layout carded full-width ">
-
-    <div class="top-bg bg-secondary text-auto"></div>
-
-    <!-- CONTENT -->
-    <div class="page-content-wrapper">
-        
-        <!-- HEADER -->
-        {% block dash_page_header %}
-
-            {% include 'mlm/partials/header-app-title.html' %}
-
-        {% endblock dash_page_header %}
-        <!-- / HEADER -->
-
-        <div class="page-content-card">
-            
-            <!-- CONTENT TOOLBAR -->
-            {% block dash_page_toolbar %}
-            
-            {% endblock dash_page_toolbar %}
-            <!-- / CONTENT TOOLBAR -->
-
-            {% block dash_page_content %}
-                
-                <div class="page-content p-6">
-                    
-                    
-                    {% include 'mlm/partials/referral-link-table.html' %}
-
-                </div>
-
-            {% endblock dash_page_content %}
-
-        </div>
-
+{% block mlm_page_header_app_title_text %}
+    <div class="logo-text">
+        <div class="h4">Referral Code List</div>
+        <div class="">Total Codes: 20</div>
     </div>
-    <!-- / CONTENT -->
+{% endblock mlm_page_header_app_title_text %}
+
+{% block mlm_page_content %}
+
+<div class="page-content p-6">
+
+    {% include 'mlm/partials/referral-link-table.html' %}
+
 </div>
 
-{% endblock dashboard_page %}
+{% endblock mlm_page_content %}
 
 
-{% block pagescript %}
-
-    <script type="text/javascript" src="{% static 'assets/js/apps/e-commerce/orders/orders.js' %}"></script>
-
-{% endblock pagescript %}

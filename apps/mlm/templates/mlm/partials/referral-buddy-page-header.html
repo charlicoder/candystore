@@ -29,10 +29,14 @@
 
     <div class="col-auto">
 
-        <button id="add-file-button" type="button" class="btn btn-info btn-fab" aria-label="Add file">
-            <i class="icon icon-plus"></i>
-        </button>
-        
+        <nav class="nav nav-pill nav-fill">
+            <a class="nav-item nav-link" href="{% url 'bond:bond_create' %}">Add Bond</a>
+            <a class="nav-item nav-link" href="{% url 'bond:bond_list_for_sale' %}">Bonds For Sale</a>
+            <a class="nav-item nav-link" href="{% url 'bond:bond_list_sold' %}">Bonds Soled</a>
+
+        </nav>
+
+
     </div>
 
 </div>

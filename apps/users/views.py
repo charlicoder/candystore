@@ -68,8 +68,8 @@ class SignUpView(CreateView):
 
     def form_valid(self, form):
         rcode = self.kwargs.get('code')
-        import pdb;
-        pdb.set_trace();
+        # import pdb;
+        # pdb.set_trace();
 
         if not rcode:
             raise ValueError('Sorry! you can not signup without referral...!')

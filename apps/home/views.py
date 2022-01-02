@@ -19,8 +19,6 @@ def contact_us(request):
     # import pdb; pdb.set_trace();
     form = ContactForm(request.POST or None)
 
-    messages.success(request, 'hello')
-
     if request.method == 'POST':
 
         if form.is_valid():

@@ -1,7 +1,9 @@
+
 <div class="page-header light-fg row no-gutters align-items-center justify-content-between">
 
     <!-- APP TITLE -->
     <div class="col-12 col-sm">
+        {% block mlm_page_header_app_title %}
 
         <div class="logo row no-gutters justify-content-center align-items-start justify-content-sm-start">
 
@@ -9,30 +11,33 @@
                 <i class="icon-cart-outline s-6"></i>
             </div>
 
+            {% block mlm_page_header_app_title_text %}
             <div class="logo-text">
-                <div class="h4">Referral Link List</div>
-                <div class="">Earnings: 20</div>
-                <div class="">Buddies: 250</div>
-            </div>
+                <div class="h4">Buddy List</div>
+                <div class="">Total Buddies: 20</div>
 
-            
+            </div>
+            {% endblock mlm_page_header_app_title_text %}
+
         </div>
+        {% endblock mlm_page_header_app_title %}
+
     </div>
     <!-- / APP TITLE -->
 
     <!-- SEARCH -->
     <div class="col search-wrapper pl-2">
 
-        
     </div>
     <!-- / SEARCH -->
 
     <div class="col-auto">
+        {% block mlm_page_header_top_menu %}
+        <nav class="nav nav-pill nav-fill">
+            <a class="btn btn-primary nav-item nav-link" href="{% url 'mlm:create-code' %}">Add Referral Code</a>
+        </nav>
+        {% endblock mlm_page_header_top_menu %}
 
-        <button id="add-file-button" type="button" class="btn btn-info btn-fab" aria-label="Add file">
-            <i class="icon icon-plus"></i>
-        </button>
-        
     </div>
 
 </div>

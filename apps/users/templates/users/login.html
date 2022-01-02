@@ -36,6 +36,17 @@
             <button type="submit" class="submit-button btn btn-block btn-secondary my-4 mx-auto" aria-label="LOG IN">
                 LOG IN
             </button>
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger alert-dismissible fade show"> {{ error}}
+
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
 
         </form>
 
