@@ -26,10 +26,10 @@ class ReferralCode(models.Model):
         
 
 class ReferralUserProfile(models.Model):
-    referrer = models.ForeignKey(CandyUser, editable=False, on_delete=models.CASCADE, blank=False, null=False,
+    referrer = models.ForeignKey(CandyUser, on_delete=models.CASCADE, blank=False, null=False,
                                 related_name='parent')
-    referral_code = models.ForeignKey(ReferralCode, editable=False, on_delete=models.CASCADE, blank=False, null=False)
-    user = models.OneToOneField(CandyUser, editable=False, on_delete=models.CASCADE, blank=False, null=False)
+    referral_code = models.ForeignKey(ReferralCode, on_delete=models.CASCADE, blank=False, null=False)
+    user = models.OneToOneField(CandyUser, on_delete=models.CASCADE, blank=False, null=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
     commission = models.DecimalField(max_digits=4, decimal_places=2, default=0.0)

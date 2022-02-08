@@ -66,19 +66,19 @@ admin.site.register(CandyUser, CandyUserAdmin)
 admin.site.unregister(Group)
 
 
-class CandyUserProfileAdmin(admin.ModelAdmin):
+# class CandyUserProfileAdmin(admin.ModelAdmin):
 
-    def avatar_preview(self, obj):
-        if obj.avatar:
-            return format_html('<img src="{}" width="80" />'.format(obj.avatar.url))
-        else:
-            return format_html('<img src="/static/assets/images/placeholder.png" width="80" />')
+#     def avatar_preview(self, obj):
+#         if obj.avatar:
+#             return format_html('<img src="{}" width="80" />'.format(obj.avatar.url))
+#         else:
+#             return format_html('<img src="/static/assets/images/placeholder.png" width="80" />')
 
-    avatar_preview.short_description = 'Image'
+#     avatar_preview.short_description = 'Image'
 
-    list_display = ('id', 'user', 'avatar_preview')
+#     list_display = ('id', 'user', 'avatar_preview')
 
 
-admin.site.register(CandyUserProfile, CandyUserProfileAdmin)
+admin.site.register(CandyUserProfile)
 
 
