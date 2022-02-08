@@ -1,3 +1,4 @@
+import django_heroku
 
 from pathlib import Path
 from decouple import config
@@ -38,6 +39,7 @@ LOGOUT_REDIRECT_URL = '/users/login/'
 
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -130,6 +132,9 @@ MEDIA_ROOT = BASE_DIR / 'public/media/'
 MEDIA_URL = '/media/'
 
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
@@ -148,3 +153,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# ===== Settings for deployment in heroku =====
+
+django_heroku.settings(locals())

@@ -1,6 +1,5 @@
 data
 venv_*
-public
 __pycache__
 
 *.pyc
